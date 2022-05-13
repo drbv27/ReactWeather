@@ -3,6 +3,7 @@ import WeatherForm from './weatherForm';
 import WeatherMainInfo from './weatherMainInfo';
 
 import styles from './weatherApp.module.css'
+import Loading from './loading';
 
 const WeatherApp = () => {
     const [weather,setWeather] = useState(null);
@@ -40,7 +41,8 @@ const WeatherApp = () => {
   return (
     <div className={styles.weatherContainer}>
         <WeatherForm onChangeCity={handleChangeCity}/>
-        <WeatherMainInfo weather={weather}/>
+        {weather ? <WeatherMainInfo weather={weather}/> : <Loading/>}
+        
     </div>
   )
 }
